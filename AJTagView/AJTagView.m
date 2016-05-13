@@ -16,7 +16,7 @@ static CGFloat cornerRadius = 3; // 文字背景圆角
 static CGFloat arrowWidth = 8; // 箭头宽度
 static NSInteger pointSpace = 8; // 箭头与标记圆点的间隔
 
-@interface AJTagView()
+@interface AJTagView()<UIAlertViewDelegate>
 {
     CGPoint _lastPoint;
     CGPoint _originPoint; // 标记点
@@ -87,6 +87,10 @@ static NSInteger pointSpace = 8; // 箭头与标记圆点的间隔
     self.frame = CGRectMake(selfX, selfY, 0, 0);
     self.text = text;
     [view addSubview:self];
+    
+//    UILongPressGestureRecognizer *longGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
+//    longGestureRecognizer.minimumPressDuration = 1.0;
+//    [self addGestureRecognizer:longGestureRecognizer];
 }
 
 - (void)showWithInView:(UIView *)view pointPercent:(CGPoint)percent text:(NSString *)text {
@@ -350,6 +354,19 @@ static NSInteger pointSpace = 8; // 箭头与标记圆点的间隔
         _originPoint = CGPointMake(CGRectGetMinX(self.frame), CGRectGetMinY(self.frame) + CGRectGetHeight(self.frame)/2.0);
     } else {
         _originPoint = CGPointMake(CGRectGetMaxX(self.frame), CGRectGetMinY(self.frame) + CGRectGetHeight(self.frame)/2.0);
+    }
+}
+
+- (void)longPressAction:(UILongPressGestureRecognizer *)sender {
+    NSLog(@"%s",__func__);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确认删除标签？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alert show];
+}
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        [self removeFromSuperview];
     }
 }
 

@@ -26,6 +26,7 @@ typedef NS_ENUM(NSInteger,AJTagDirection) {
 @property (nonatomic, strong) UIColor *pointColor; // 标记点颜色
 @property (nonatomic, strong) UIColor *pointShadowColor; // 标记点阴影颜色
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer; // 点击手势
+@property (nonatomic, strong) UILongPressGestureRecognizer *longGestureRecognizer; // 长按手势，默认长按删除
 
 /**
  *  显示某个tag，3个参数必须
