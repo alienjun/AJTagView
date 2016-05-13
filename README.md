@@ -29,10 +29,18 @@
     // 单独设置text
     tagView.text = @"test";
     
-	// 给tag添加点击事件
+	// 给tag添加自定义点击事件
     self.imageView.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeTagViewStyle:)];
     tagView.tapGestureRecognizer = tap;
+    
+    // 获取图片上tag的点
+    [self.imageView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj isKindOfClass:[AJTagView class]]) {
+            CGPoint point = [((AJTagView *)obj) getTagPointPercent];
+            NSLog(@"%@",NSStringFromCGPoint(point));
+        }
+    }];
 
 ###批量添加tag
 	// 批量添加tag
