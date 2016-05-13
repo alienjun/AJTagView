@@ -75,7 +75,7 @@
     tag.backgroundColor = color;
     tag.pointColor = color;
     tag.pointShadowColor = color;
-    tag.backgroundColor =  color;
+    tag.font = [UIFont systemFontOfSize:18];
     // 切换方向
     tag.direction = tag.direction == AJTagDirectionLeft ? AJTagDirectionRight : AJTagDirectionLeft;
 }

@@ -13,9 +13,21 @@
 	 #import "UIView+Tag.h"
 	 //指定标签原点相对于需要显示的视图的百分比，需要显示的文字即可
     AJTagView *tagView = [self.imageView aj_showTagWithPercent:CGPointMake(0.2, 0.3) text:@"人群中寻找"];
+    
     // 可以拖动tag
     tagView.canMove = YES; 
-    tagView.direction = AJTagDirectionLeft; // 设置标签朝向
+    // 设置标签朝向
+    tagView.direction = AJTagDirectionLeft; 
+    // 背景色
+    tagView.backgroundColor = color;
+    // 标签原点颜色
+    tagView.pointColor = color;
+    // 标签原点阴影颜色
+    tagView.pointShadowColor = color;
+    // 标签字体
+    tagView.font = [UIFont systemFontOfSize:18];
+    // 单独设置text
+    tagView.text = @"test";
     
 	// 给tag添加点击事件
     self.imageView.userInteractionEnabled = YES;
