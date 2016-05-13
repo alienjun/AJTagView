@@ -38,9 +38,9 @@
         }];
         
         // 使用Autolayout 需要在viewDidAppear下设置tag，此时控件的frame才是正确的
-        AJTagView *tagView = [self.imageView aj_showTagWithPercent:CGPointMake(0.2, 0.3) text:@"人群中寻找"];
+        AJTagView *tagView = [self.imageView aj_showTagWithPercent:CGPointMake(0.5, 0.3) text:@"人群中哈市的角度讲爱哦欧松杀死后搜到好哦啊到爱撒谎是多厚碍手碍脚都是啊手动还加饭啥都好生动安山东华啥都好生动后安徽的寻找"];
         tagView.canMove = YES; // 可以拖动tag
-        tagView.direction = AJTagDirectionLeft; // 设置标签朝向
+//        tagView.direction = AJTagDirectionLeft; // 设置标签朝向
         
         // 给tag添加点击事件
         self.imageView.userInteractionEnabled = YES;
@@ -75,7 +75,7 @@
     tag.backgroundColor = color;
     tag.pointColor = color;
     tag.pointShadowColor = color;
-    tag.font = [UIFont systemFontOfSize:18];
+    tag.font = [UIFont systemFontOfSize:14];
     // 切换方向
     tag.direction = tag.direction == AJTagDirectionLeft ? AJTagDirectionRight : AJTagDirectionLeft;
 }

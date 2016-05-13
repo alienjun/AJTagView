@@ -81,6 +81,7 @@ static NSInteger pointSpace = 8; // 箭头与标记圆点的间隔
     CGFloat selfX = point.x;
     if (_direction == AJTagDirectionRight) {
         selfX = point.x - _textSize.width - pointSpace - _pointSize.width/2.0;
+        selfX = selfX < 0 ? 0:selfX;
     }
 
     self.frame = CGRectMake(selfX, selfY, 0, 0);
@@ -144,7 +145,7 @@ static NSInteger pointSpace = 8; // 箭头与标记圆点的间隔
 // 创建显示内容的label
 - (void)createContentLabel {
     AJInsetLabel *label = [[AJInsetLabel alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame))];
-    label.numberOfLines = 2;
+    label.numberOfLines = 0;
     label.font = self.font;
     label.textColor = self.textColor;
     label.backgroundColor = self.backgroundColor;
@@ -262,6 +263,12 @@ static NSInteger pointSpace = 8; // 箭头与标记圆点的间隔
     rect.size = _textSize;
     rect.size.height += 10;
     rect.size.width += arrowWidth + 5;//尖头宽度=insets 为10，这里宽度偏移5
+    
+    // 宽度限制
+    if (rect.size.width > _contentMaxWidth) {
+        rect.size.width = _contentMaxWidth;
+    }
+    
     _contentLabel.frame = rect;
     
     // 重新绘制
