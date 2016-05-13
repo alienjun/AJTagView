@@ -39,13 +39,18 @@
         
         // 使用Autolayout 需要在viewDidAppear下设置tag，此时控件的frame才是正确的
         AJTagView *tagView = [self.imageView aj_showTagWithPercent:CGPointMake(0.5, 0.3) text:@"人群中哈市的角度讲爱哦欧松杀死后搜到好哦啊到爱撒谎是多厚碍手碍脚都是啊手动还加饭啥都好生动安山东华啥都好生动后安徽的寻找"];
-        tagView.canMove = YES; // 可以拖动tag
-//        tagView.direction = AJTagDirectionLeft; // 设置标签朝向
+        //要记得限制字数，这里只是一个测试。
+        
+        tagView.enableMove = YES; // 可以拖动tag
+        //tagView.direction = AJTagDirectionLeft; // 设置标签朝向
+        tagView.enableTapGesture = YES;
         
         // 给tag添加点击事件
         self.imageView.userInteractionEnabled = YES;
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeTagViewStyle:)];
-        tagView.tapGestureRecognizer = tap;
+        
+        //自定义手势
+//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeTagViewStyle:)];
+//        tagView.tapGestureRecognizer = tap;
         
         
         // 批量添加tag
@@ -66,6 +71,15 @@
 - (IBAction)showAllAction:(id)sender {
     [self.imageView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         obj.hidden = NO;
+    }];
+}
+
+- (IBAction)getTagsPointAction:(id)sender {
+    [self.imageView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj isKindOfClass:[AJTagView class]]) {
+            CGPoint point = [((AJTagView *)obj) getTagPointPercent];
+            NSLog(@"%@",NSStringFromCGPoint(point));
+        }
     }];
 }
 

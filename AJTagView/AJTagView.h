@@ -17,7 +17,9 @@ typedef NS_ENUM(NSInteger,AJTagDirection) {
 
 @interface AJTagView : UIView
 
-@property (nonatomic, assign) BOOL canMove; // 是否能移动 默认NO
+@property (nonatomic) BOOL enableMove; // 是否能移动 默认NO
+@property (nonatomic) BOOL enableLongGesture; // 是否能长按 默认NO
+@property (nonatomic) BOOL enableTapGesture; // 是否能点击 默认NO
 @property (nonatomic, copy) NSString *text; // 内容
 @property (nonatomic, strong) UIColor *textColor; // 文字颜色 默认[UIColor whiteColor]
 @property (nonatomic, assign) AJTagDirection direction; // 标签箭头朝向 默认BoTagDirectionLeft
@@ -25,8 +27,6 @@ typedef NS_ENUM(NSInteger,AJTagDirection) {
 @property (nonatomic, strong) UIColor *backgroundColor; // 背景色
 @property (nonatomic, strong) UIColor *pointColor; // 标记点颜色
 @property (nonatomic, strong) UIColor *pointShadowColor; // 标记点阴影颜色
-@property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer; // 点击手势
-@property (nonatomic, strong) UILongPressGestureRecognizer *longGestureRecognizer; // 长按手势，默认长按删除
 
 /**
  *  显示某个tag，3个参数必须
@@ -45,6 +45,20 @@ typedef NS_ENUM(NSInteger,AJTagDirection) {
  *  @param text    标签内容
  */
 - (void)showWithInView:(UIView *)view pointPercent:(CGPoint)percent text:(NSString *)text;
+
+/**
+ *  设置点击手势
+ *
+ *  @param tapGesture
+ */
+- (void)setTapGestureRecognizer:(UITapGestureRecognizer *)tapGesture;
+
+/**
+ *  设置长按手势
+ *
+ *  @param longGesture
+ */
+- (void)setLongGestureRecognizer:(UILongPressGestureRecognizer *)longGesture;
 
 /**
  *  获取标记点

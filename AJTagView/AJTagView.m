@@ -26,6 +26,8 @@ static NSInteger pointSpace = 8; // 箭头与标记圆点的间隔
 @property (nonatomic) CGSize pointSize;// 标记点大小
 @property (weak, nonatomic) AJInsetLabel *contentLabel;
 @property (weak, nonatomic) UIView *pointView;// 标记点所在的view
+@property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer; // 点击手势
+@property (nonatomic, strong) UILongPressGestureRecognizer *longGestureRecognizer; // 长按手势，默认长按删除
 @end
 
 
@@ -48,7 +50,12 @@ static NSInteger pointSpace = 8; // 箭头与标记圆点的间隔
     _pointSize = CGSizeMake(6, 6);
     _pointColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.8];
     _pointShadowColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
-    _canMove = NO;
+    _enableMove = NO;
+    _enableTapGesture = NO;
+    _enableLongGesture = NO;
+    
+    // 默认手势
+    [self defaultGesture];
     
     // 添加标记点
     [self createCircleView];
@@ -87,10 +94,6 @@ static NSInteger pointSpace = 8; // 箭头与标记圆点的间隔
     self.frame = CGRectMake(selfX, selfY, 0, 0);
     self.text = text;
     [view addSubview:self];
-    
-//    UILongPressGestureRecognizer *longGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
-//    longGestureRecognizer.minimumPressDuration = 1.0;
-//    [self addGestureRecognizer:longGestureRecognizer];
 }
 
 - (void)showWithInView:(UIView *)view pointPercent:(CGPoint)percent text:(NSString *)text {
@@ -158,6 +161,18 @@ static NSInteger pointSpace = 8; // 箭头与标记圆点的间隔
     self.contentLabel = label;
 }
 
+// 默认手势
+- (void)defaultGesture {
+    // 长按
+    _longGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
+    _longGestureRecognizer.minimumPressDuration = 1.0;
+    [self addGestureRecognizer:_longGestureRecognizer];
+    
+    // 点击
+    _tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+    [self addGestureRecognizer:_tapGestureRecognizer];
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     
@@ -216,6 +231,9 @@ static NSInteger pointSpace = 8; // 箭头与标记圆点的间隔
     [mask addSublayer:arrowLayer];
     mask.path = path.CGPath ;
     label.layer.mask = mask;
+    
+    // 重绘文字
+    [self.contentLabel setNeedsDisplay];
     
     // 调整frame
     CGRect rect = _contentLabel.frame;
@@ -302,14 +320,23 @@ static NSInteger pointSpace = 8; // 箭头与标记圆点的间隔
 
 - (void)setTapGestureRecognizer:(UITapGestureRecognizer *)tapGesture {
     if ([tapGesture isKindOfClass:[UITapGestureRecognizer class]]) {
+        [self removeGestureRecognizer:_tapGestureRecognizer];
         _tapGestureRecognizer = tapGesture;
         [self addGestureRecognizer:tapGesture];
     }
 }
 
+- (void)setLongGestureRecognizer:(UILongPressGestureRecognizer *)longGesture {
+    if ([longGesture isKindOfClass:[UILongPressGestureRecognizer class]]) {
+        [self removeGestureRecognizer:_longGestureRecognizer];
+        _longGestureRecognizer = longGesture;
+        [self addGestureRecognizer:longGesture];
+    }
+}
+
 #pragma mark Touch event
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    if (!_canMove || touches.count > 1) {
+    if (!_enableMove || touches.count > 1) {
         return;
     }
     UITouch *touch = [touches anyObject];
@@ -318,7 +345,7 @@ static NSInteger pointSpace = 8; // 箭头与标记圆点的间隔
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    if (!_canMove || touches.count > 1) {
+    if (!_enableMove || touches.count > 1) {
         return;
     }
     UITouch *touch = [touches anyObject];
@@ -358,9 +385,17 @@ static NSInteger pointSpace = 8; // 箭头与标记圆点的间隔
 }
 
 - (void)longPressAction:(UILongPressGestureRecognizer *)sender {
-    NSLog(@"%s",__func__);
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确认删除标签？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-    [alert show];
+    if (sender.state == UIGestureRecognizerStateBegan && _enableLongGesture) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确认删除标签？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alert show];
+    }
+}
+
+- (void)tapAction:(UITapGestureRecognizer *)sender {
+    if (_enableTapGesture) {
+        // 默认支持切换朝向
+        self.direction = self.direction == AJTagDirectionLeft ? AJTagDirectionRight : AJTagDirectionLeft;
+    }
 }
 
 #pragma mark - UIAlertViewDelegate

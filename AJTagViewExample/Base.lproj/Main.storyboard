@@ -31,7 +31,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y3p-LA-97s">
-                                <rect key="frame" x="199" y="450" width="56" height="30"/>
+                                <rect key="frame" x="139" y="450" width="56" height="30"/>
                                 <state key="normal" title="show all"/>
                                 <connections>
                                     <action selector="showAllAction:" destination="P0J-gF-17n" eventType="touchUpInside" id="Oe4-kF-UIe"/>
@@ -42,6 +42,13 @@
                                 <state key="normal" title="to tableView"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="push" id="hvo-uR-TVr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gdl-8Y-O3T">
+                                <rect key="frame" x="217" y="450" width="90" height="30"/>
+                                <state key="normal" title="getTagsPoint"/>
+                                <connections>
+                                    <action selector="getTagsPointAction:" destination="P0J-gF-17n" eventType="touchUpInside" id="iJw-aR-47g"/>
                                 </connections>
                             </button>
                         </subviews>

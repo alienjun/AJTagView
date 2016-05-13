@@ -1,7 +1,7 @@
 
 介绍
 ==============
-可以给任何View添加类似nice 应用中的那种标签。<br/>
+可以给任何View添加类似nice 应用中的那种标签。默认可以<br/>
 ![Aaron Swartz](https://github.com/alienjun/AJTagView/blob/master/Screenshots/screenshot1.gif)
 
 
