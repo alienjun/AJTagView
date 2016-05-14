@@ -1,11 +1,14 @@
 
 介绍
 ==============
-可以给任何View添加类似nice 应用中的那种标签。默认可以<br/>
+可以给任何View添加类似nice 应用中的那种标签。<br/>
 ![Aaron Swartz](https://github.com/alienjun/AJTagView/blob/master/Screenshots/screenshot1.gif)
 
 
-
+特性
+==============
+- 开启长按和点击手势后，默认实现点击切换方向，长按删除。
+- 可以任意移动位置。
 
 用法
 ==============
@@ -15,7 +18,12 @@
     AJTagView *tagView = [self.imageView aj_showTagWithPercent:CGPointMake(0.2, 0.3) text:@"人群中寻找"];
     
     // 可以拖动tag
-    tagView.canMove = YES; 
+    tagView.enableMove = YES; 
+    // 启用点击
+    tagView.enableTapGesture = YES;
+    // 启用长按
+    tagView.enableLongGesture = YES;
+    
     // 设置标签朝向
     tagView.direction = AJTagDirectionLeft; 
     // 背景色

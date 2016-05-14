@@ -7,21 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB5EEED01CE6CDA700C7C5B6 /* AJInsetLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5EEECB1CE6CDA700C7C5B6 /* AJInsetLabel.m */; };
+		FB5EEED11CE6CDA700C7C5B6 /* AJTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5EEECD1CE6CDA700C7C5B6 /* AJTagView.m */; };
+		FB5EEED21CE6CDA700C7C5B6 /* UIView+Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5EEECF1CE6CDA700C7C5B6 /* UIView+Tag.m */; };
 		FBBB9D1E1CE58420005CA57D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBB9D1D1CE58420005CA57D /* main.m */; };
 		FBBB9D211CE58420005CA57D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBB9D201CE58420005CA57D /* AppDelegate.m */; };
 		FBBB9D241CE58420005CA57D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBB9D231CE58420005CA57D /* ViewController.m */; };
 		FBBB9D271CE58420005CA57D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBBB9D251CE58420005CA57D /* Main.storyboard */; };
 		FBBB9D291CE58420005CA57D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBBB9D281CE58420005CA57D /* Assets.xcassets */; };
 		FBBB9D2C1CE58420005CA57D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBBB9D2A1CE58420005CA57D /* LaunchScreen.storyboard */; };
-		FBBB9D381CE5910B005CA57D /* AJInsetLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBB9D351CE5910B005CA57D /* AJInsetLabel.m */; };
-		FBBB9D391CE5910B005CA57D /* AJTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBB9D371CE5910B005CA57D /* AJTagView.m */; };
 		FBBB9D3B1CE59537005CA57D /* 66.png in Resources */ = {isa = PBXBuildFile; fileRef = FBBB9D3A1CE59537005CA57D /* 66.png */; };
 		FBBB9D3E1CE59D0F005CA57D /* ViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBB9D3D1CE59D0F005CA57D /* ViewCell.m */; };
 		FBBB9D441CE5A998005CA57D /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBB9D431CE5A998005CA57D /* DemoViewController.m */; };
-		FBBB9D471CE5ADCE005CA57D /* UIView+Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBB9D461CE5ADCE005CA57D /* UIView+Tag.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FB5EEECA1CE6CDA700C7C5B6 /* AJInsetLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJInsetLabel.h; sourceTree = "<group>"; };
+		FB5EEECB1CE6CDA700C7C5B6 /* AJInsetLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJInsetLabel.m; sourceTree = "<group>"; };
+		FB5EEECC1CE6CDA700C7C5B6 /* AJTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJTagView.h; sourceTree = "<group>"; };
+		FB5EEECD1CE6CDA700C7C5B6 /* AJTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJTagView.m; sourceTree = "<group>"; };
+		FB5EEECE1CE6CDA700C7C5B6 /* UIView+Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Tag.h"; sourceTree = "<group>"; };
+		FB5EEECF1CE6CDA700C7C5B6 /* UIView+Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Tag.m"; sourceTree = "<group>"; };
 		FBBB9D191CE58420005CA57D /* AJTagViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AJTagViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBBB9D1D1CE58420005CA57D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FBBB9D1F1CE58420005CA57D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -32,17 +38,11 @@
 		FBBB9D281CE58420005CA57D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FBBB9D2B1CE58420005CA57D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FBBB9D2D1CE58420005CA57D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FBBB9D341CE5910B005CA57D /* AJInsetLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJInsetLabel.h; sourceTree = "<group>"; };
-		FBBB9D351CE5910B005CA57D /* AJInsetLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJInsetLabel.m; sourceTree = "<group>"; };
-		FBBB9D361CE5910B005CA57D /* AJTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJTagView.h; sourceTree = "<group>"; };
-		FBBB9D371CE5910B005CA57D /* AJTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJTagView.m; sourceTree = "<group>"; };
 		FBBB9D3A1CE59537005CA57D /* 66.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 66.png; sourceTree = "<group>"; };
 		FBBB9D3C1CE59D0F005CA57D /* ViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewCell.h; sourceTree = "<group>"; };
 		FBBB9D3D1CE59D0F005CA57D /* ViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewCell.m; sourceTree = "<group>"; };
 		FBBB9D421CE5A998005CA57D /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
 		FBBB9D431CE5A998005CA57D /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
-		FBBB9D451CE5ADCE005CA57D /* UIView+Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Tag.h"; sourceTree = "<group>"; };
-		FBBB9D461CE5ADCE005CA57D /* UIView+Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Tag.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +56,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB5EEEC91CE6CDA700C7C5B6 /* AJTagView */ = {
+			isa = PBXGroup;
+			children = (
+				FB5EEECA1CE6CDA700C7C5B6 /* AJInsetLabel.h */,
+				FB5EEECB1CE6CDA700C7C5B6 /* AJInsetLabel.m */,
+				FB5EEECC1CE6CDA700C7C5B6 /* AJTagView.h */,
+				FB5EEECD1CE6CDA700C7C5B6 /* AJTagView.m */,
+				FB5EEECE1CE6CDA700C7C5B6 /* UIView+Tag.h */,
+				FB5EEECF1CE6CDA700C7C5B6 /* UIView+Tag.m */,
+			);
+			name = AJTagView;
+			path = ../AJTagView;
+			sourceTree = "<group>";
+		};
 		FBBB9D101CE58420005CA57D = {
 			isa = PBXGroup;
 			children = (
-				FBBB9D331CE5910B005CA57D /* AJTagView */,
+				FB5EEEC91CE6CDA700C7C5B6 /* AJTagView */,
 				FBBB9D1B1CE58420005CA57D /* AJTagViewExample */,
 				FBBB9D1A1CE58420005CA57D /* Products */,
 			);
@@ -100,19 +114,6 @@
 				FBBB9D1D1CE58420005CA57D /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		FBBB9D331CE5910B005CA57D /* AJTagView */ = {
-			isa = PBXGroup;
-			children = (
-				FBBB9D361CE5910B005CA57D /* AJTagView.h */,
-				FBBB9D371CE5910B005CA57D /* AJTagView.m */,
-				FBBB9D341CE5910B005CA57D /* AJInsetLabel.h */,
-				FBBB9D351CE5910B005CA57D /* AJInsetLabel.m */,
-				FBBB9D451CE5ADCE005CA57D /* UIView+Tag.h */,
-				FBBB9D461CE5ADCE005CA57D /* UIView+Tag.m */,
-			);
-			path = AJTagView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,13 +188,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBBB9D241CE58420005CA57D /* ViewController.m in Sources */,
-				FBBB9D381CE5910B005CA57D /* AJInsetLabel.m in Sources */,
+				FB5EEED11CE6CDA700C7C5B6 /* AJTagView.m in Sources */,
 				FBBB9D211CE58420005CA57D /* AppDelegate.m in Sources */,
 				FBBB9D441CE5A998005CA57D /* DemoViewController.m in Sources */,
+				FB5EEED01CE6CDA700C7C5B6 /* AJInsetLabel.m in Sources */,
 				FBBB9D1E1CE58420005CA57D /* main.m in Sources */,
 				FBBB9D3E1CE59D0F005CA57D /* ViewCell.m in Sources */,
-				FBBB9D391CE5910B005CA57D /* AJTagView.m in Sources */,
-				FBBB9D471CE5ADCE005CA57D /* UIView+Tag.m in Sources */,
+				FB5EEED21CE6CDA700C7C5B6 /* UIView+Tag.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
