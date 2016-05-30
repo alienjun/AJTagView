@@ -87,7 +87,8 @@ static NSInteger pointSpace = 8; // 箭头与标记圆点的间隔
     
     CGFloat selfX = point.x;
     if (_direction == AJTagDirectionRight) {
-        selfX = point.x - _textSize.width - pointSpace - _pointSize.width/2.0;
+        CGFloat labelWidth = _textSize.width + arrowWidth;
+        selfX = point.x - labelWidth - pointSpace - _pointSize.width/2.0;
         selfX = selfX < 0 ? 0:selfX;
     }
 
